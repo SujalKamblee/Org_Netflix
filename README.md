@@ -1,2 +1,2 @@
-# Org_Netflix
-Site with Netflix Inspriration
+Org_Netflix
+Netflix Inspired Site
