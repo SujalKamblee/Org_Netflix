@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up Page</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("https://miro.medium.com/v2/resize:fit:1400/1*5lyavS59mazOFnb55Z6znQ.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: #fff;
+    }
+    .container {
+        max-width: 400px;
+        margin: 100px auto;
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+        padding: 40px;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 28px;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="submit"] {
+        width: calc(100% - 24px);
+        padding: 12px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 16px;
+    }
+    input[type="submit"] {
+        background-color: #e50914;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+        background-color: #bf0813;
+    }
+    .netflix-logo {
+        display: block;
+        margin: 0 auto 20px;
+        width: 150px;
+    }
+    .signin-text {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" class="netflix-logo">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Your password" required>
+        <input type="submit" value="Sign Up">
+    </form>
+    <p class="signin-text">Already have an account? <a href="./index.html">Login</a></p>
+</div>
+
+<script>
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get form values
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        // Validate form fields
+        if (name.trim() === "") {
+            alert("Please enter your full name");
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            alert("Please enter a valid email address");
+            return;
+        }
+
+        if (!validatePassword(password)) {
+            alert("Password must be at least 6 characters long");
+            return;
+        }
+
+        // If all fields are correct, open new.html in a new tab
+        window.open("new.html", "_blank");
+    });
+
+    // Function to validate email format
+    function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    // Function to validate password length
+    function validatePassword(password) {
+        return password.length >= 6;
+    }
+</script>
+
+</body>
+</html>
